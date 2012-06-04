@@ -23,7 +23,7 @@ public abstract class Scene extends Node {
         AffineTransform tx = new AffineTransform();
         for (Node node : childNodes) {
             tx.setToIdentity();
-            tx.translate(halfWindowSize.width, halfWindowSize.height);
+            tx.translate(halfWindowSize.width + node.getPosX(), halfWindowSize.height + node.getPosY());
             tx.scale(node.getScale(), -node.getScale());
             g2d.setTransform(tx);
             Stroke stroke = g2d.getStroke();

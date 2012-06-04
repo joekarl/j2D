@@ -23,7 +23,7 @@ import java.awt.event.KeyListener;
  * keys being pressed simulatneously. To use this class just simply add it as a
  * key listener to your JFrame and it will be populated with input. 
  */
-public final class InputManager implements KeyListener {
+public final class KeyboardInputManager implements KeyListener {
 
     //array of key states made as integers for more possible states. 
     private int[] keys = new int[256];
@@ -37,19 +37,19 @@ public final class InputManager implements KeyListener {
     //a string used as a buffer by widgets or other text input controls
     private String keyCache = "";
     //the only instantiated object
-    private static InputManager instance = new InputManager();
+    private static KeyboardInputManager instance = new KeyboardInputManager();
 
     /**
      * Empty Constructor: nothing really needed here.
      */
-    protected InputManager() {
+    protected KeyboardInputManager() {
     }
 
     /**
      * Singleton accessor the only means of getting the instantiated object.
      * @return One and only InputManager object.
      */
-    public static InputManager getInstance() {
+    public static KeyboardInputManager getInstance() {
         return instance;
     }
 
@@ -94,8 +94,8 @@ public final class InputManager implements KeyListener {
      * @param e The KeyEvent fired by the awt Toolkit.
      */
     public void keyTyped(KeyEvent e) {
+        //System.out.println("InputManager: A key has been typed code=" + e.getKeyCode());
         keyCache += e.getKeyChar();
-
     }
 
     /**
@@ -106,6 +106,7 @@ public final class InputManager implements KeyListener {
      * @return true is that key is currently being pressed.
      */
     public boolean isKeyDown(int key) {
+        //System.out.println("Checking state for key " + key + ". it was " + key_state_down[key]);
         return key_state_down[key];
     }
 

@@ -7,7 +7,7 @@ package joekarl.g2.demo1;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
-import joekarl.g2.InputManager;
+import joekarl.g2.KeyboardInputManager;
 import joekarl.g2.Node;
 
 /**
@@ -16,7 +16,7 @@ import joekarl.g2.Node;
  */
 public class BallNode extends Node {
 
-    InputManager input = InputManager.getInstance();
+    KeyboardInputManager input = KeyboardInputManager.getInstance();
 
     public void render(Graphics2D g2d, float interpolation) {
         g2d.setColor(Color.BLUE);
@@ -31,10 +31,10 @@ public class BallNode extends Node {
             setPosX(getPosX() + 10);
         }
         if (input.isKeyDown(KeyEvent.VK_UP)) {
-            setPosX(getPosY() - 10);
+            setPosY(getPosY() - 10);
         }
         if (input.isKeyDown(KeyEvent.VK_DOWN)) {
-            setPosX(getPosY() + 10);
+            setPosY(getPosY() + 10);
         }
     }
 }

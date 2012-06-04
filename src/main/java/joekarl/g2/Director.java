@@ -21,6 +21,7 @@ public class Director {
     private MainLoop _mainLoop;
     private boolean _showFPS = true;
     private TimeCounter _fpsCounter;
+    private int _renderCount = 0;
 
     public static Director sharedDirector() {
         if (g_sharedDirector == null) {
@@ -30,29 +31,33 @@ public class Director {
     }
 
     private Director() {
+        new RepeatingReleasedEventsFixer().install();
         _renderer = new Renderer();
-        _renderer.addKeyListener(InputManager.getInstance());
+        _renderer.addKeyListener(KeyboardInputManager.getInstance());
         _fpsCounter = new TimeCounter();
     }
 
+    
     public void runWithScene(Scene scene) {
         if (_runningScene != null) {
             throw new IllegalStateException("Cannot call runWithScene twice");
         }
         _runningScene = scene;
-
+        
         _mainLoop = new MainLoop(30) {
 
             String fpsString = "FPS [%.0f]";
 
             @Override
             public void tick(long dt) {
-                InputManager.getInstance().update();
+                KeyboardInputManager.getInstance().update();
                 _runningScene.update();
+                _renderCount = 0;
             }
 
             @Override
             public void render(float dt) {
+                _renderCount++;
                 Graphics2D g2d = _renderer.startFrame();
                 _runningScene.render(g2d, dt);
                 if (_showFPS) {

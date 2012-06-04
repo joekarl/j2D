@@ -60,6 +60,7 @@ public abstract class MainLoop {
 
             render((float) (getTime() + skipTicks - nextTick) / (float) (skipTicks));
             lastRender = currentTime;
+            Thread.yield();
         }
     }
 
