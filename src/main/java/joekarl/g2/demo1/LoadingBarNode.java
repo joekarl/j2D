@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
-import java.awt.geom.RoundRectangle2D;
+import java.awt.geom.Rectangle2D;
 import joekarl.g2.Director;
 import joekarl.g2.Node;
 
@@ -21,17 +21,17 @@ public class LoadingBarNode extends Node {
 
     double halfWidth, halfHeight;
     Stroke stroke;
-    RoundRectangle2D.Double outerRect, innerRect;
+    Rectangle2D.Double outerRect, innerRect;
 
     public LoadingBarNode() {
         Dimension windowSize = Director.sharedDirector().windowSize();
         setWidth(windowSize.width * .5);
         setHeight(25);
         stroke = new BasicStroke(2);
-        outerRect = new RoundRectangle2D.Double(-getHalfWidth(),
-                -getHalfHeight(), getWidth(), getHeight(), 5, 5);
-        innerRect = new RoundRectangle2D.Double(-getHalfWidth(),
-                -getHalfHeight(), 0, getHeight(), 5, 5);
+        outerRect = new Rectangle2D.Double(-getHalfWidth(),
+                -getHalfHeight(), getWidth(), getHeight());
+        innerRect = new Rectangle2D.Double(-getHalfWidth(),
+                -getHalfHeight(), 0, getHeight());
     }
 
     @Override
@@ -44,9 +44,10 @@ public class LoadingBarNode extends Node {
     }
 
     public void update() {
-        if (innerRect.width == getWidth()) {
+        if (innerRect.width >= getWidth()) {
+            Director.sharedDirector().replaceScene(new KeyMoveScene());
             return;
         }
-        innerRect.width += 1;
+        innerRect.width += 10;
     }
 }

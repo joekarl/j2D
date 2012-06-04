@@ -8,10 +8,10 @@ import joekarl.g2.Scene;
 
 /**
  *
- * @author karl_ctr_kirch
+ * @author karl
  */
-public class LoadingScene extends Scene {
-    public LoadingScene() {
-        childNodes.add(new LoadingBarNode());
+public class KeyMoveScene extends Scene {
+    public KeyMoveScene() {
+        childNodes.add(new BallNode());
     }
 }

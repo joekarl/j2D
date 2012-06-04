@@ -4,11 +4,16 @@
  */
 package joekarl.g2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author karl_ctr_kirch
  */
 public abstract class Node implements Renderable, Updatable {
+    
+    protected List<Node> childNodes = new ArrayList<Node>();
     
     private double _posX, _posY, 
             _width, _height, _halfWidth, _halfHeight,

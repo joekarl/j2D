@@ -9,22 +9,19 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.awt.geom.AffineTransform;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author karl_ctr_kirch
  */
-public abstract class Scene implements Renderable, Updatable {
+public abstract class Scene extends Node {
 
-    protected List<Node> nodes = new ArrayList<Node>();
 
     public void render(Graphics2D g2d, float interpolation) {
         Dimension halfWindowSize = Director.sharedDirector().halfWindowSize();
         Dimension windowSize = Director.sharedDirector().windowSize();
         AffineTransform tx = new AffineTransform();
-        for (Node node : nodes) {
+        for (Node node : childNodes) {
             tx.setToIdentity();
             tx.translate(halfWindowSize.width, halfWindowSize.height);
             tx.scale(node.getScale(), -node.getScale());
@@ -41,7 +38,7 @@ public abstract class Scene implements Renderable, Updatable {
     }
 
     public void update() {
-        for (Node node : nodes) {
+        for (Node node : childNodes) {
             node.update();
         }
     }

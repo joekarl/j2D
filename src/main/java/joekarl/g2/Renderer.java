@@ -49,7 +49,7 @@ public class Renderer extends JFrame {
         graphics = (Graphics2D) bufferStrategy.getDrawGraphics();
         graphics.setColor(Color.BLACK);
         graphics.fillRect(0, 0, I_WIDTH, I_HEIGHT);
-        graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        //graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         return graphics;
     }
 
