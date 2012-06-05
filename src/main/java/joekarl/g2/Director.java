@@ -51,7 +51,7 @@ public class Director {
             @Override
             public void tick(long dt) {
                 KeyboardInputManager.getInstance().update();
-                _runningScene.update();
+                _runningScene._update();
                 _renderCount = 0;
             }
 
@@ -59,7 +59,7 @@ public class Director {
             public void render(float dt) {
                 _renderCount++;
                 Graphics2D g2d = _renderer.startFrame();
-                _runningScene.render(g2d, dt);
+                _runningScene._render(g2d, dt);
                 if (_showFPS) {
                     AffineTransform tx = g2d.getTransform();
                     tx.setToIdentity();

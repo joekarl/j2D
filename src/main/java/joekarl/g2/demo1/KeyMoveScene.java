@@ -13,5 +13,7 @@ import joekarl.g2.Scene;
 public class KeyMoveScene extends Scene {
     public KeyMoveScene() {
         childNodes.add(new BallNode());
+        childNodes.add(new CrossHairNode());
     }
+
 }

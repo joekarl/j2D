@@ -19,10 +19,10 @@ public class BallNode extends Node {
     KeyboardInputManager input = KeyboardInputManager.getInstance();
 
     public void render(Graphics2D g2d, float interpolation) {
-        g2d.setColor(Color.BLUE);
+        g2d.setColor(Color.blue);
         g2d.fillOval(-10, -10, 20, 20);
     }
-
+    
     public void update() {
         if (input.isKeyDown(KeyEvent.VK_LEFT)) {
             setPosX(getPosX() - 10);
