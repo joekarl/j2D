@@ -4,7 +4,6 @@
  */
 package joekarl.g2;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
@@ -80,12 +79,11 @@ public abstract class Node implements Renderable, Updatable {
         this._width = _width;
         this._halfWidth = _width / 2;
     }
-
+    private AffineTransform tx;
+    private Dimension halfWindowSize = Director.sharedDirector().halfWindowSize();
     public final void _render(Graphics2D g2d, float interpolation) {
-        Dimension halfWindowSize = Director.sharedDirector().halfWindowSize();
-        Dimension windowSize = Director.sharedDirector().windowSize();
-        AffineTransform tx = new AffineTransform();
         for (Node node : childNodes) {
+            tx = g2d.getTransform();
             tx.setToIdentity();
             tx.translate(halfWindowSize.width + node.getPosX(), halfWindowSize.height + node.getPosY());
             tx.scale(node.getScale(), -node.getScale());
@@ -95,7 +93,7 @@ public abstract class Node implements Renderable, Updatable {
             node._render(g2d, interpolation);
             g2d.setStroke(stroke);
         }
-        
+
     }
 
     public final void _update() {

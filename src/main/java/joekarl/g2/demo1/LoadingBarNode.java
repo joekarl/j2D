@@ -45,23 +45,23 @@ public class LoadingBarNode extends Node {
     }
 
     public void update() {
-        if (innerRect.width >= getWidth()) {
-            Director.sharedDirector().replaceScene(new KeyMoveScene());
-            return;
+//        if (innerRect.width >= getWidth()) {
+//            Director.sharedDirector().replaceScene(new KeyMoveScene());
+//            return;
+//        }
+//        innerRect.width += 10;
+        if (left) {
+            innerRect.width -= 10;
+        } else {
+            innerRect.width += 10;
         }
-        innerRect.width += 10;
-//        if (left) {
-//            innerRect.width -= 10;
-//        } else {
-//            innerRect.width += 10;
-//        }
-//        
-//        if (left && innerRect.width <= 0) {
-//            innerRect.width = 0;
-//            left = false;
-//        } else if (!left && innerRect.width >= getWidth()) {
-//            innerRect.width = getWidth();
-//            left = true;
-//        }
+        
+        if (left && innerRect.width <= 0) {
+            innerRect.width = 0;
+            left = false;
+        } else if (!left && innerRect.width >= getWidth()) {
+            innerRect.width = getWidth();
+            left = true;
+        }
     }
 }
