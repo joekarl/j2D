@@ -21,6 +21,7 @@ public abstract class Node implements Renderable, Updatable {
     private double _posX, _posY,
             _width, _height, _halfWidth, _halfHeight,
             _rotation /*in radians*/, _scale = 1;
+    private int _halfWidthI, _halfHeightI;
 
     public double getHalfWidth() {
         return _halfWidth;
@@ -28,6 +29,14 @@ public abstract class Node implements Renderable, Updatable {
 
     public double getHalfHeight() {
         return _halfHeight;
+    }
+    
+    public int getHalfWidthI() {
+        return _halfWidthI;
+    }
+
+    public int getHalfHeightI() {
+        return _halfHeightI;
     }
 
     public double getHeight() {
@@ -37,6 +46,7 @@ public abstract class Node implements Renderable, Updatable {
     public void setHeight(double _height) {
         this._height = _height;
         this._halfHeight = _height / 2;
+        this._halfHeightI = (int) this._halfHeight;
     }
 
     public double getPosX() {
@@ -78,6 +88,7 @@ public abstract class Node implements Renderable, Updatable {
     public void setWidth(double _width) {
         this._width = _width;
         this._halfWidth = _width / 2;
+        this._halfWidthI = (int) this._halfWidth;
     }
     private AffineTransform tx;
     private Dimension halfWindowSize = Director.sharedDirector().halfWindowSize();

@@ -25,7 +25,7 @@ public class Renderer extends JFrame {
     private Canvas canvas;
     private Graphics2D graphics, bufferGraphics;
     private BufferStrategy bufferStrategy;
-    private int I_WIDTH = 800, I_HEIGHT = 600,
+    private int I_WIDTH = 600, I_HEIGHT = 480,
             HALF_WIDTH = I_WIDTH / 2, HALF_HEIGHT = I_HEIGHT / 2,
             NUM_BUFFERS = 1;
     private Dimension halfCanvasSize = new Dimension(HALF_WIDTH, HALF_HEIGHT);
@@ -36,6 +36,7 @@ public class Renderer extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container contentPane = this.getContentPane();
         canvas = new Canvas();
+        canvas.setIgnoreRepaint(true);
         canvas.setPreferredSize(new Dimension(I_WIDTH, I_HEIGHT));
         contentPane.add(canvas);
         this.pack();

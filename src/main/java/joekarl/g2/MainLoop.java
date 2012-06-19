@@ -4,6 +4,9 @@
  */
 package joekarl.g2;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author karl ctr kirch
@@ -60,7 +63,11 @@ public abstract class MainLoop {
 
             render((float) (getTime() + skipTicks - nextTick) / (float) (skipTicks));
             lastRender = currentTime;
-            Thread.yield();
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MainLoop.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
