@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package joekarl.g2;
+package joekarl.j2D;
 
 import java.awt.Canvas;
 import java.awt.Container;
@@ -69,8 +69,7 @@ public class Renderer extends JFrame {
         try {
             if (!bufferStrategy.contentsLost()) {
                 bufferStrategy.show();
-                //Toolkit.getDefaultToolkit().sync();
-                Thread.yield();
+                Toolkit.getDefaultToolkit().sync();
             }
         } finally {
             if (bufferGraphics != null) {

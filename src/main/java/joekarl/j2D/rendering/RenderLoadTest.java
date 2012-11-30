@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package joekarl.g2.rendering;
+package joekarl.j2D.rendering;
 
-import joekarl.g2.Director;
-import joekarl.g2.Scene;
+import joekarl.j2D.Director;
+import joekarl.j2D.Scene;
 
 /**
  *

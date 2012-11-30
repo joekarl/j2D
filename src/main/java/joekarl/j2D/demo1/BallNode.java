@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package joekarl.g2.demo1;
+package joekarl.j2D.demo1;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
-import joekarl.g2.KeyboardInputManager;
-import joekarl.g2.Node;
+import joekarl.j2D.KeyboardInputManager;
+import joekarl.j2D.Node;
 
 /**
  *
@@ -23,7 +23,7 @@ public class BallNode extends Node {
         g2d.fillOval(-10, -10, 20, 20);
     }
     
-    public void update() {
+    public void update(long dt) {
         if (input.isKeyDown(KeyEvent.VK_LEFT)) {
             setPosX(getPosX() - 10);
         }

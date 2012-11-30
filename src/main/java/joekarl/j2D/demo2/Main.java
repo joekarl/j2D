@@ -1,6 +1,6 @@
-package joekarl.g2.demo2;
+package joekarl.j2D.demo2;
 
-import joekarl.g2.Director;
+import joekarl.j2D.Director;
 
 /**
  * Hello world!

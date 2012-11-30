@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package joekarl.g2.rendering;
+package joekarl.j2D.rendering;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -79,18 +79,18 @@ public class SimpleWindowedGame {
                 //g2d.setColor(background);
                 //g2d.fillRect(0, 0, WIDTH, HEIGHT);
 
-//                // draw some rectangles...
-//                for (int i = 0; i < 20; ++i) {
-//                    int r = rand.nextInt(256);
-//                    int g = rand.nextInt(256);
-//                    int b = rand.nextInt(256);
-//                    g2d.setColor(new Color(r, g, b));
-//                    int x = rand.nextInt(WIDTH / 2);
-//                    int y = rand.nextInt(HEIGHT / 2);
-//                    int w = rand.nextInt(WIDTH / 2);
-//                    int h = rand.nextInt(HEIGHT / 2);
-//                    g2d.fillRect(x, y, w, h);
-//                }
+                // draw some rectangles...
+                for (int i = 0; i < 20; ++i) {
+                    int r = rand.nextInt(256);
+                    int g = rand.nextInt(256);
+                    int b = rand.nextInt(256);
+                    g2d.setColor(new Color(r, g, b));
+                    int x = rand.nextInt(WIDTH / 2);
+                    int y = rand.nextInt(HEIGHT / 2);
+                    int w = rand.nextInt(WIDTH / 2);
+                    int h = rand.nextInt(HEIGHT / 2);
+                    g2d.fillRect(x, y, w, h);
+                }
 
                 // display frames per second...
                 g2d.setFont(new Font("Courier New", Font.PLAIN, 12));

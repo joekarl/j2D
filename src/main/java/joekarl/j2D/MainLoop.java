@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package joekarl.g2;
+package joekarl.j2D;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -63,11 +63,7 @@ public abstract class MainLoop {
 
             render((float) (getTime() + skipTicks - nextTick) / (float) (skipTicks));
             lastRender = currentTime;
-            try {
-                Thread.sleep(5);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(MainLoop.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Thread.yield();
         }
     }
 

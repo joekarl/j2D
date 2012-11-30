@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>joekarl</groupId>
-    <artifactId>G2</artifactId>
+    <artifactId>j2D</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>G2</name>
+    <name>j2D</name>
     <url>http://maven.apache.org</url>
     <build>
         <plugins>

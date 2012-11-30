@@ -2,14 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package joekarl.g2.demo1;
+package joekarl.j2D.demo2;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
-import joekarl.g2.Director;
-import joekarl.g2.Node;
+import joekarl.j2D.Director;
+import joekarl.j2D.Node;
 
 /**
  *
@@ -28,7 +28,7 @@ public class CrossHairNode extends Node {
         g2d.drawLine(halfWindowSize.width, 0, halfWindowSize.width, windowSize.height);
     }
 
-    public void update() {
+    public void update(long dt) {
         
     }
 }

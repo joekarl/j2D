@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package joekarl.g2;
+package joekarl.j2D;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
@@ -18,6 +18,8 @@ import java.util.List;
 public abstract class Node implements Renderable, Updatable {
 
     protected List<Node> childNodes = new ArrayList<Node>();
+    protected List<Node> addChildQueue = new ArrayList<Node>();
+    protected List<Node> removeChildQueue = new ArrayList<Node>();
     private double _posX, _posY,
             _width, _height, _halfWidth, _halfHeight,
             _rotation /*in radians*/, _scale = 1;
@@ -84,6 +86,14 @@ public abstract class Node implements Renderable, Updatable {
     public double getWidth() {
         return _width;
     }
+    
+    public void addChild(Node n) {
+        addChildQueue.add(n);
+    }
+    
+    public void removeChild(Node n) {
+        removeChildQueue.add(n);
+    }
 
     public void setWidth(double _width) {
         this._width = _width;
@@ -98,6 +108,7 @@ public abstract class Node implements Renderable, Updatable {
             tx.setToIdentity();
             tx.translate(halfWindowSize.width + node.getPosX(), halfWindowSize.height + node.getPosY());
             tx.scale(node.getScale(), -node.getScale());
+            tx.rotate(node.getRotation());
             g2d.setTransform(tx);
             Stroke stroke = g2d.getStroke();
             node.render(g2d, interpolation);
@@ -107,10 +118,14 @@ public abstract class Node implements Renderable, Updatable {
 
     }
 
-    public final void _update() {
+    public final void _update(long dt) {
         for (Node node : childNodes) {
-            node.update();
-            node._update();
+            node.update(dt);
+            node._update(dt);
         }
+        childNodes.addAll(addChildQueue);
+        addChildQueue.clear();
+        childNodes.removeAll(removeChildQueue);
+        removeChildQueue.clear();
     }
 }
