@@ -57,7 +57,7 @@ public class Renderer extends JFrame {
         }
         bufferGraphics = backgroundBuffer.createGraphics();
         bufferGraphics.clearRect(0, 0, I_WIDTH, I_HEIGHT);
-        //bufferGraphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        //zbufferGraphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         return bufferGraphics;
     }
 
@@ -90,4 +90,10 @@ public class Renderer extends JFrame {
     public Dimension getHalfCanvasSize() {
         return halfCanvasSize;
     }
+
+    protected Canvas getCanvas() {
+        return canvas;
+    }
+    
+    
 }

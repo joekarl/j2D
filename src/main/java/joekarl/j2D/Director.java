@@ -7,6 +7,8 @@ package joekarl.j2D;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.geom.AffineTransform;
 
 /**
@@ -32,6 +34,7 @@ public class Director {
     private Director() {
         new RepeatingReleasedEventsFixer().install();
         _renderer = new Renderer();
+        _renderer.getCanvas().addKeyListener(KeyboardInputManager.getInstance());
         _renderer.addKeyListener(KeyboardInputManager.getInstance());
         _fpsCounter = new TimeCounter();
     }

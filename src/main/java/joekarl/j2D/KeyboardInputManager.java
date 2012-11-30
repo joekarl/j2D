@@ -60,7 +60,7 @@ public final class KeyboardInputManager implements KeyListener {
      * @param e The KeyEvent fired by the awt Toolkit
      */
     public void keyPressed(KeyEvent e) {
-        //System.out.println("InputManager: A key has been pressed code=" + e.getKeyCode());
+        System.out.println("InputManager: A key has been pressed code=" + e.getKeyCode());
         if (e.getKeyCode() >= 0 && e.getKeyCode() < 256) {
             keys[e.getKeyCode()] = (int) System.currentTimeMillis();
             key_state_down[e.getKeyCode()] = true;

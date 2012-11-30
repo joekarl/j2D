@@ -99,6 +99,7 @@ public class RepeatingReleasedEventsFixer implements AWTEventListener {
         // ?: KEY_TYPED event? (We're only interested in KEY_PRESSED and KEY_RELEASED).
         if (event.getID() == KeyEvent.KEY_TYPED) {
             // -> Yes, TYPED, don't process.
+            System.out.println("Typed: [" + event + "]");
             return;
         }
 
@@ -134,9 +135,10 @@ public class RepeatingReleasedEventsFixer implements AWTEventListener {
             // ?: Do we have a corresponding RELEASED waiting?
             if (action != null) {
                 // -> Yes, so dump it
+                System.out.println("Dumped event [ " + keyEvent + " ]");
                 action.cancel();
             }
-            //System.out.println("PRESSED: [" + keyEvent + "]");
+            System.out.println("PRESSED: [" + keyEvent + "]");
         } else {
             throw new AssertionError("All IDs should be covered.");
         }
@@ -181,7 +183,7 @@ public class RepeatingReleasedEventsFixer implements AWTEventListener {
                     _originalKeyEvent.getKeyCode(), _originalKeyEvent.getKeyChar(), _originalKeyEvent.getKeyLocation());
             // Posting to EventQueue.
             Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(newEvent);
-            //System.out.println("Posted synthetic RELEASED [" + newEvent + "].");
+            System.out.println("Posted synthetic RELEASED [" + newEvent + "].");
         }
     }
 

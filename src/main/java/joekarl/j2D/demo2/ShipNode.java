@@ -41,7 +41,7 @@ public class ShipNode extends SpriteNode {
             setPosY(getPosY() + 10);
         }
 
-        if (input.isKeyDown(KeyEvent.VK_SPACE)) {
+        if (input.isKeyDown(KeyEvent.VK_SPACE) || input.isKeyDown(KeyEvent.VK_F)) {
             Scene scene = Director.sharedDirector().getRunningScene();
             MissileNode missileNode = new MissileNode();
             missileNode.setPosX(getPosX());
